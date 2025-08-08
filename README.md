@@ -119,6 +119,51 @@ const items = queue.dequeueCount(2); // ['second', 'third']
 - `isEmpty(): boolean` - Check if queue is empty
 - `size(): number` - Get the number of elements
 
+#### `LinkedList<T>`
+
+A doubly linked list implementation supporting efficient insertions, removals, and traversal.
+
+```typescript
+import { LinkedList } from 'neo-tools';
+
+const list = new LinkedList<number>();
+
+list.append(1);
+list.append(2);
+list.append(3);
+
+console.log(list.size()); // 3
+console.log(list.find(2)?.value); // 2
+list.remove(2);
+console.log(list.size()); // 2
+list.prepend(0);
+console.log(list.find(0)?.next?.value); // 1
+
+// Insert after a node
+const node = list.find(1);
+list.insertAfter(node!, 1.5);
+console.log(list.find(1.5)?.prev?.value); // 1
+
+// Iterate through the list
+for (const value of list) {
+  console.log(value);
+}
+```
+
+**Methods:**
+- `append(value: T): void` - Add an element to the end
+- `prepend(value: T): void` - Add an element to the beginning
+- `remove(value: T): boolean` - Remove the first occurrence of a value
+- `find(value: T): ListNode<T> | null` - Find the first node with the given value
+- `findLast(value: T): ListNode<T> | null` - Find the last node with the given value
+- `insertAfter(node: ListNode<T>, value: T): void` - Insert a value after the given node
+- `insertBefore(node: ListNode<T>, value: T): void` - Insert a value before the given node
+- `clear(): void` - Remove all elements
+- `size(): number` - Get the number of elements
+- `isEmpty(): boolean` - Check if the list is empty
+- `indexOf(value: T): number` - Get the index of the first occurrence
+- `lastIndexOf(value: T): number` - Get the index of the last occurrence
+
 #### `PromiseQueue<T>`
 
 A queue for managing concurrent promise execution with configurable concurrency limits.
@@ -186,7 +231,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📋 Roadmap
 
-- [ ] Additional data structures (LinkedList, Set, Map implementations)
+- [x] Additional data structures (LinkedList, DoubleLinkedList)
 - [ ] More utility functions (memoization, curry, compose)
 - [ ] Performance benchmarks
 - [ ] Browser compatibility testing

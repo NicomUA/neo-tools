@@ -1,6 +1,6 @@
 {
   "name": "neo-tools",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Collection of useful and efficient JS tools",
   "main": "lib/index.js",
   "scripts": {
