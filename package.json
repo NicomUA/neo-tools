@@ -1,11 +1,11 @@
 {
   "name": "neo-tools",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Collection of useful and efficient JS tools",
   "type": "module",
   "main": "lib/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "rimraf lib && tsc",
     "test": "node --import=tsx --test src/**/__test__/*.test.ts"
   },
   "files": [
@@ -17,6 +17,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^24.2.0",
+    "rimraf": "^6.0.1",
     "tsx": "^4.20.3"
   },
   "keywords": [

@@ -44,6 +44,25 @@ debouncedSearch('hello world'); // Previous call is cancelled
 - `fn` (Function): The function to debounce
 - `delay` (number): The delay in milliseconds (default: 300)
 
+#### `fibonacci(n)`
+
+Efficiently computes the nth Fibonacci number using an iterative approach with BigInt support for large numbers.
+
+```typescript
+import { fibonacci } from 'neo-tools';
+
+console.log(fibonacci(0)); // 0n
+console.log(fibonacci(1)); // 1n
+console.log(fibonacci(10)); // 55n
+console.log(fibonacci(100)); // 354224848179261915075n
+```
+
+**Parameters:**
+- `n` (number): The index (n >= 0) of the Fibonacci sequence to compute
+
+**Returns:**
+- (BigInt): The nth Fibonacci number as a BigInt
+
 #### `throttle(fn, delay)`
 
 Limits the execution rate of a function, ensuring it's not called more than once in a specified delay period.

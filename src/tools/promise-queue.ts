@@ -1,12 +1,15 @@
-import { Queue } from './queue';
+import { Queue } from '../structures/queue';
 
 export class PromiseQueue<T = any> {
   private queue: Queue<() => Promise<T>> = new Queue();
   private concurrentLimit: number;
 
-  constructor(initialTasks: Array<() => Promise<T>> = [], concurrentLimit: number = 5) {
+  constructor(
+    initialTasks: Array<() => Promise<T>> = [],
+    concurrentLimit: number = 5
+  ) {
     this.queue = new Queue<() => Promise<T>>();
-    initialTasks.forEach(task => this.queue.enqueue(task));
+    initialTasks.forEach((task) => this.queue.enqueue(task));
     this.concurrentLimit = concurrentLimit;
   }
 
@@ -28,7 +31,7 @@ export class PromiseQueue<T = any> {
     }
 
     const tasks = this.queue.dequeueCount(this.concurrentLimit);
-    yield await Promise.all(tasks.map(task => task()));
+    yield await Promise.all(tasks.map((task) => task()));
   }
 
   async processQueue(): Promise<T[] | void> {
@@ -37,6 +40,6 @@ export class PromiseQueue<T = any> {
     }
 
     const tasks = this.queue.dequeueCount(this.concurrentLimit);
-    return Promise.all(tasks.map(task => task()));
+    return Promise.all(tasks.map((task) => task()));
   }
 }

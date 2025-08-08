@@ -1,4 +1,4 @@
-import { test, beforeEach, describe } from "node:test";
+import { test, beforeEach, describe } from 'node:test';
 import assert from 'node:assert/strict';
 import { throttle } from '../throttle';
 
@@ -45,6 +45,4 @@ describe('Throttle', () => {
       assert.equal(calls, 2);
     }, 150);
   });
-
-  
 });
