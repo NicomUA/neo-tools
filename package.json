@@ -1,7 +1,8 @@
 {
   "name": "neo-tools",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Collection of useful and efficient JS tools",
+  "type": "module",
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
@@ -10,7 +11,6 @@
   "files": [
     "lib"
   ],
-  "keywords": [],
   "author": "Mykyta Matsapura",
   "repository": "https://github.com/NicomUA/neo-tools",
   "homepage": "https://github.com/NicomUA/neo-tools#readme",
@@ -19,6 +19,18 @@
     "@types/node": "^24.2.0",
     "tsx": "^4.20.3"
   },
+  "keywords": [
+    "utils",
+    "tools",
+    "data-structures",
+    "algorithms",
+    "queue",
+    "dequeue",
+    "promise-queue",
+    "linked-list",
+    "double-linked-list",
+    "stack"
+  ],
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild"
